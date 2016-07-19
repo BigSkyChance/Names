@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string.h>
+#include "BubbleSort.h"
+#include "ReadNames.h"
+#include "ReadFunctions.h"
+
+
+using namespace std;
+
+void main()
+{
+	
+	char		Names[MaxNames][MaxCharsPerName + 1];
+	int			NumNames;
+	int			i;
+
+
+
+	cout << "Welcome to name organizer\n" << endl;
+
+
+	do {
+		cout << "Enter the number of names that you would like to enter(Max 20): ";
+		NumNames = ReadInteger();
+		if (NumNames < 1 || NumNames > 20)
+			cout << "Error, please enter a valid amount of names" << endl;
+	} while (NumNames < 1 || NumNames > 20);
+
+	cout << "Enter each name to be organized: ";
+	ReadNames(Names, NumNames);
+
+	cout << "\nThe Names you entered are:" << endl;
+	for (i = 0; i < NumNames; i++)
+	{
+		cout << Names[i] << endl;
+	}
+	
+	cout << "\nAlphabatizing..." << endl;
+	BubbleSort(Names, NumNames); 
+
+	cout << "\nSorted:" << endl;
+	for (i = 0; i < NumNames; i++)
+	{
+		cout << Names[i] << endl;
+	}
+
+
+
+
+
+}
